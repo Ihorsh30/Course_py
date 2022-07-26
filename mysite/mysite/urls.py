@@ -14,8 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from myapp.views import my_password, generate_random_password
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', include("myapp.urls")),
+
+    path('article/', include("myapp.urls")),
+
+    path('password/', my_password),
+    path('password/<str:password>/', my_password),
+
+    path('generate/', generate_random_password),
+    path('generate/<int:length>/', generate_random_password),
+ ]
