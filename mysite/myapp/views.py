@@ -17,7 +17,7 @@ def inf_article(request, article_id, article_slug=''):
 def my_password(request, password):
     if password.isalnum() and password.isascii() and len(password) == 8:
         return HttpResponse(f"Password '{password}' matches the given parameters")
-    return HttpResponse(f"Password '{password}' don`t matches the given parameters")
+    return HttpResponse(f"Password '{password}' does not matches the given parameters")
 
 
 def generate_random_password(request, length):
