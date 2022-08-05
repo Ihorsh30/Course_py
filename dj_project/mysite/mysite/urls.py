@@ -22,9 +22,5 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('profile/', views.profile, name='user_name'),
     path('cart/', views.cart, name='cart'),
-
-    path('motorola-edge-30-pro/', views.prod1),
-    path('samsung-galaxy-a53/', views.prod1),
-    path('poco-X4-PRO-5G/', views.prod1),
-
+    path('<slug:product>/', views.prod),
 ]

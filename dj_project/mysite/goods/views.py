@@ -34,73 +34,37 @@ def cart(request):
     return render(request, 'cart.html')
 
 
-# def prod1(request):
-#     products = {
-#         "id": 1,
-#         "product": "Motorola Edge 30 Pro",
-#         "slug": "motorola-edge-30-pro",
-#         "available": False,
-#         "description": "some product description",
-#         "price": 50_000.00,
-#     }
-#
-#     return render(request, 'product.html', products)
-#
-#
-# def prod2(request):
-#     products = {
-#         "id": 2,
-#         "product": "Samsung Galaxy A53",
-#         "slug": "samsung-galaxy-a53",
-#         "available": True,
-#         "description": "some product description",
-#         "price": 75_999.99
-#     }
-#
-#     return render(request, 'product.html', products)
-#
-#
-# def prod3(request):
-#     products = {
-#         "id": 3,
-#         "product": "Poco X4 Pro 5G",
-#         "slug": "poco-X4-PRO-5G",
-#         "available": True,
-#         "description": "some product description",
-#         "price": 45_999.00
-#     }
-#
-#     return render(request, 'product.html', products)
+def prod(request, product):
+    my_list = {
+        'motorola-edge-30-pro': {
+            "id": 1,
+            "name": "Motorola Edge 30 Pro",
+            "slug": "motorola-edge-30-pro",
+            "available": False,
+            "description": "some product description",
+            "price": 50_000.00,
+        },
+        'samsung-galaxy-a53': {
+            "id": 2,
+            "name": "Samsung Galaxy A53",
+            "slug": "samsung-galaxy-a53",
+            "available": True,
+            "description": "some product description",
+            "price": 75_999.99
+        },
+        'poco-X4-PRO-5G': {
+            "id": 3,
+            "name": "Poco X4 Pro 5G",
+            "slug": "poco-X4-PRO-5G",
+            "available": True,
+            "description": "some product description",
+            "price": 45_999.00
+        }
+    }
 
-
-def prod1(request):
+    description = my_list.get(product)
     context = {
-        'products': [
-            {
-                "id": 1,
-                "product": "Motorola Edge 30 Pro",
-                "slug": "motorola-edge-30-pro",
-                "available": False,
-                "description": "some product description",
-                "price": 50_000.00,
-            },
-            {
-                "id": 2,
-                "product": "Samsung Galaxy A53",
-                "slug": "samsung-galaxy-a53",
-                "available": True,
-                "description": "some product description",
-                "price": 75_999.99
-            },
-            {
-                "id": 3,
-                "product": "Poco X4 Pro 5G",
-                "slug": "poco-X4-PRO-5G",
-                "available": True,
-                "description": "some product description",
-                "price": 45_999.00
-            }
-        ]
+        'my_description': description
     }
 
     return render(request, 'product.html', context)
