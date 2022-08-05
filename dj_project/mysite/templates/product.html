@@ -10,14 +10,15 @@
 
 
 <div  class="container">
+    {% for url in products %}
 
-    <p><b>ID: {{ id }}</b></p>
-    <p><b>Product name: {{ product }}</b></p>
-    <p><b>Description: {{ description }}</b></p>
-    <p><b>Price: {{ price }}</b></p>
+        <p><b>ID: {{ url.id }}</b></p>
+        <p><b>Product name: {{ url.product }}</b></p>
+        <p><b>Description: {{ url.description }}</b></p>
+        <p><b>Price: {{ url.price }}</b></p>
+
+    {% endfor %}
     <a href="/cart" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Придбати</a>
-
-
 </div>
 
 {% endblock %}

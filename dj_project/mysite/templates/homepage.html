@@ -14,35 +14,14 @@
     </header>
   </div>
 
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  <div class="p-3 pb-md-4  text-center">
 
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-body">
-             <img src="https://mobile-review.com/all/wp-content/uploads/2022/04/1-1.jpg" alt="" width="380" height="350">
-            <div style="font-size:160%"><a href="motorola-edge-30-pro/">Motorola Edge 30 Pro</a></div>
-          </div>
-        </div>
-      </div>
+    {% for url in urls %}
+      <img src="{{ url.picture }}" alt="" width="380" height="350">
+      <div style="font-size:160%"><a href="{{ url.model }}">{{ url.model }}</a></div>
+    {% endfor %}
 
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <img src="https://i.allo.ua/media/catalog/product/cache/3/image/524x494/602f0fa2c1f0d1ba5e241f914e856ff9/u/a/ua-galaxy-a33-5g-a336-sm-a336blbgsek-531847005.jpg" alt="" width="400" height="350">
-          <div class="card-body">
-            <div style="font-size:160%"><a href="samsung-galaxy-a53/">Samsung Galaxy A53</a></div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-body">
-              <img src="https://mobile-review.com/all/wp-content/uploads/2022/03/2-4.jpg" alt="" width="350" height="350">
-            <div style="font-size:160%"><a href="poco-X4-PRO-5G/">Poco X4 Pro 5G</a></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+  </div>
 
 {% endblock %}

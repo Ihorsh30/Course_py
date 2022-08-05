@@ -24,7 +24,7 @@ urlpatterns = [
     path('cart/', views.cart, name='cart'),
 
     path('motorola-edge-30-pro/', views.prod1),
-    path('samsung-galaxy-a53/', views.prod2),
-    path('poco-X4-PRO-5G/', views.prod3),
+    path('samsung-galaxy-a53/', views.prod1),
+    path('poco-X4-PRO-5G/', views.prod1),
 
 ]
