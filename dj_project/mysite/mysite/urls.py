@@ -15,17 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from myapp.views import my_password, generate_random_password
-
+from goods import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("myapp.urls")),
 
-    path('article/', include("myapp.urls")),
-
-    path('password/', my_password),
-    path('password/<str:password>/', my_password),
-
-    path('generate/', generate_random_password),
-    path('generate/<int:length>/', generate_random_password),
- ]
+    path('', views.homepage, name='homepage'),
+    path('profile/', views.profile, name='user_name'),
+    path('cart/', views.cart, name='cart'),
+    path('<slug:product>/', views.prod),
+]

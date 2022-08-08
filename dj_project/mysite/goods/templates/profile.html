@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block container %}
+
+
+
+<div class="text-center">
+    <h1>User page</h1>
+</div>
+
+<div  class="container">
+    <p><img src="https://cdn-icons-png.flaticon.com/512/47/47774.png" alt="" width="150" height="150"></p>
+    <p><b>ID: {{id}}</b></p>
+    <p><b>Username: {{ username }}</b></p>
+    <p><b>First_name: {{ first_name }}</b></p>
+    <p><b>Last_name: {{ last_name }}</b></p>
+</div>
+
+{% endblock %}

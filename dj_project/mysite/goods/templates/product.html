@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Product{% endblock %}
+{% block container %}
+
+
+
+<div class="text-center">
+    <h1>Product page</h1>
+</div>
+
+<div  class="container">
+
+    <p><b>ID: {{ my_description.id }}</b></p>
+    <p><b>Product name: {{ my_description.name }}</b></p>
+    <p><b>Description: {{ my_description.description }}</b></p>
+    <p><b>Price: {{ my_description.price }}</b></p>
+
+    <a href="/cart" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Придбати</a>
+</div>
+
+{% endblock %}

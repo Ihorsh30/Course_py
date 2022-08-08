@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+{% block container %}
+
+
+
+  <div class="container py-3">
+    <header>
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">Goods</h1>
+        <p class="fs-5 text-muted">Welcome to our online store. You can choose different phone models like samsung
+          or chinese company phone. Please choose</p>
+      </div>
+    </header>
+  </div>
+
+  <div class="p-3 pb-md-4  text-center">
+
+    {% for url in urls %}
+      <img src="{{ url.picture }}" alt="" width="380" height="350">
+      <div style="font-size:160%"><a href="{{ url.model }}">{{ url.model }}</a></div>
+    {% endfor %}
+
+
+  </div>
+
+{% endblock %}
