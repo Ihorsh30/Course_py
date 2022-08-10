@@ -1,13 +1,5 @@
-* dwkdfjwjffkejf
-* fkjekjlgjk
-  * kfjkdgjkejgrjg
----
-__dsklfks__
-_lksfkegk_
-___lsfklekf___
+This is my first django project
+* Models have added and each of these models were registered
 
-``
-flef;e'g
-jgdlgl;sdwdwsffefef
-``
+
 
