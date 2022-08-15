@@ -14,11 +14,13 @@
     </header>
   </div>
 
-  <div class="p-3 pb-md-4  text-center">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 nav">
 
     {% for url in urls %}
+    <div class="p-3 pb-md-4  text-center">
       <img src="{{ url.picture }}" alt="" width="380" height="350">
-      <div style="font-size:160%"><a href="{{ url.model }}">{{ url.model }}</a></div>
+      <div style="font-size:160%" class="nav-item"><a href="{{ url.model }}" class="nav-link">{{ url.model }}</a></div>
+    </div>
     {% endfor %}
 
 
