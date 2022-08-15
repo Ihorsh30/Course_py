@@ -11,11 +11,14 @@
 <div  class="container">
 
     <p><b>ID: {{ my_description.id }}</b></p>
+    <img src="{{ my_description.image }}" alt="" width="380" height="350">
     <p><b>Product name: {{ my_description.name }}</b></p>
     <p><b>Description: {{ my_description.description }}</b></p>
     <p><b>Price: {{ my_description.price }}</b></p>
+    <p><b>Company: {{ my_description.company }}</b></p>
+    <p><b>Country: {{ my_description.country }}</b></p>
 
-    <a href="/cart" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Придбати</a>
+    <a href="/cart" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
 </div>
 
 {% endblock %}
