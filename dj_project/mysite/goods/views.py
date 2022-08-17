@@ -4,9 +4,8 @@ from .models import Product, Category
 
 
 def list_view(request):
-    products = Product.objects.filter().order_by('category_id')
-    return render(request, 'homepage.html', {
-        "products": products})
+    products = {"products": Product.objects.all().order_by('category_id')}
+    return render(request, 'homepage.html', products)
 
 
 def profile(request):
@@ -24,9 +23,8 @@ def cart(request):
 
 def detail_view(request, product):
     try:
-        object = Category.objects.get(slug=product)
-        return render(request, 'product.html', {
-            "object": object})
+        object = {"object": Category.objects.get(slug=product)}
+        return render(request, 'product.html', object)
     except Category.DoesNotExist:
         return Http404("Product not found")
     except Category.MultipleObjectsReturned:
