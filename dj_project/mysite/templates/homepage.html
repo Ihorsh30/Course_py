@@ -3,7 +3,6 @@
 {% block container %}
 
 
-
   <div class="container py-3">
     <header>
       <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
@@ -15,12 +14,60 @@
   </div>
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 nav">
+    {% for url in products %}
+        {% if url.quantity_stock != 0 %}
+            {% if url.amount == 0 %}
+                      <div class="p-3 pb-md-4  text-center">
+                        <img src="{{ url.image }}" alt="" width="380" height="350">
+                        <div style="font-size:160%" class="nav-item"><a href="{{ url.slug }}" class="nav-link" style="background-color:hsla(9, 100%, 64%, 0.5);">{{ url.name }}</a></div>
+                        <div  align="left">
+                            <p class="fs-5" style="color:DodgerBlue;">ID: {{ url.id }}</p>
+                            <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }} - NO GOODS</p>
+                            <p class="fs-5" style="color:DodgerBlue;">Company: {{ url.company }}</p>
+                            <p class="fs-5" style="color:DodgerBlue;">Country: {{ url.country }}</p>
+                        </div>
+                            <p class="fs-3">Price: {{ url.price }} $</p>
+                            <a class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
+                       </div>
+            {% endif %}
+        <div class="p-3 pb-md-4  text-center">
+          <img src="{{ url.image }}" alt="" width="380" height="350">
+          <div style="font-size:160%" class="nav-item"><a href="{{ url.slug }}" class="nav-link" style="background-color:hsla(9, 100%, 64%, 0.5);">{{ url.name }}</a></div>
+            <div  align="left">
+                <p class="fs-5" style="color:DodgerBlue;">ID: {{ url.id }}</p>
+                <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }}</p>
+                <p class="fs-5" style="color:DodgerBlue;">Company: {{ url.company }}</p>
+                <p class="fs-5" style="color:DodgerBlue;">Country: {{ url.country }}</p>
+            </div>
+                <p class="fs-3">Price: {{ url.price }} $</p>
+                <a href="/cart" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
+        </div>
+            {% else %}
 
-    {% for url in urls %}
-    <div class="p-3 pb-md-4  text-center">
-      <img src="{{ url.picture }}" alt="" width="380" height="350">
-      <div style="font-size:160%" class="nav-item"><a href="{{ url.model }}" class="nav-link">{{ url.model }}</a></div>
-    </div>
+            <div class="p-3 pb-md-4  text-center">
+              <div style="position: absolute; color:red; font-size:70px; padding-top: 100px">Out of stock</div>
+              <img src=" {{ url.image }} " alt="" width="380" height="350">
+              <div style="font-size:160%" class="nav-item"><a href="{{ url.slug }} " class="nav-link" style="background-color:hsla(9, 100%, 64%, 0.5);">{{ url.name }}</a></div>
+                <div  align="left">
+                    {% if url.amount == 0 %}
+                            <p class="fs-5" style="color:DodgerBlue;">ID: {{ url.id }}</p>
+                            <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }} - NO GOODS</p>
+                        {% else %}
+                            <p class="fs-5" style="color:DodgerBlue;">ID: {{ url.id }}</p>
+                            <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }} </p>
+                    {% endif %}
+                    <p class="fs-5" style="color:DodgerBlue;">Company: {{ url.company }}</p>
+                    <p class="fs-5" style="color:DodgerBlue;">Country: {{ url.country }}</p>
+                </div>
+                    {% if url.amount != 0 %}
+                            <p class="fs-3">Price: {{ url.price }} $</p>
+                            <a href="/cart" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
+                        {% else %}
+                            <p class="fs-3">Price: {{ url.price }} $</p>
+                            <a class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
+                    {% endif %}
+            </div>
+         {% endif %}
     {% endfor %}
 
 
