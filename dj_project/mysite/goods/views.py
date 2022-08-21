@@ -8,15 +8,6 @@ def list_view(request):
     return render(request, 'homepage.html', products)
 
 
-def profile(request):
-    user = {
-        "id": 1,
-        "username": "shell",
-        "first_name": "Ihor",
-        "last_name": "Sheludko"}
-    return render(request, 'profile.html', user)
-
-
 def cart(request):
     return render(request, 'cart.html')
 
@@ -29,4 +20,3 @@ def detail_view(request, product):
         return Http404("Product not found")
     except Category.MultipleObjectsReturned:
         return "More than one object"
-

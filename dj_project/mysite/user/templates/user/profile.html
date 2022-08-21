@@ -10,10 +10,11 @@
 
 <div  class="container">
     <p><img src="https://cdn-icons-png.flaticon.com/512/47/47774.png" alt="" width="150" height="150"></p>
-    <p><b>ID: {{id}}</b></p>
-    <p><b>Username: {{ username }}</b></p>
-    <p><b>First_name: {{ first_name }}</b></p>
-    <p><b>Last_name: {{ last_name }}</b></p>
+    <p><b>ID: {{user.id}}</b></p>
+    <p><b>Username: {{ user.username }}</b></p>
+    <p><b>First_name: {{ user.first_name }}</b></p>
+    <p><b>Last_name: {{ user.last_name }}</b></p>
+    <p><b>Email: {{ user.email }}</b></p>
 </div>
 
 {% endblock %}
