@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponseRedirect
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
@@ -14,7 +14,7 @@ def user(request: HttpRequest):
 
 
 def signup_view(request: HttpRequest):
-    """" Register user """
+    """ Register user """
 
     if request.method == 'POST':
         username = request.POST["username"]
@@ -38,7 +38,7 @@ def signup_view(request: HttpRequest):
 
 
 def signin_view(request: HttpRequest):
-    """" Log in user """
+    """ Log in user """
 
     if request.method == 'POST':
         username = request.POST["username"]
@@ -57,11 +57,11 @@ def logout_view(request: HttpRequest):
 
 
 def user_deactivate(request):
-    """" User deactivate and logout """
+    """ User deactivate and logout """
 
     user = request.user
     if user:
         user.is_active = False
         user.save()
-        logout(request)
-        return HttpResponseRedirect(reverse_lazy("homepage"))
+        return HttpResponseRedirect(reverse("logout"))
+

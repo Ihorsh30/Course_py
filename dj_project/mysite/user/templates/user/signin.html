@@ -4,9 +4,9 @@
     <div>Message: {{ message }}</div>
     <form method="post">
         {% csrf_token %}
-        <p><b>Enter username:</b> <input id="username" name="username" type="text"></p>
-        <p><b>Enter password:</b> <input id="password" name="password" type="password"></p>
-        <input type="submit">
+        <label for="username">Enter username:</label><br> <input id="username" name="username" type="text"><br>
+        <label for="password">Enter password:</label><br> <input id="password" name="password" type="password"><br><br>
+        <input type="submit" value="Submit">
     </form>
 
 {% endblock %}
