@@ -25,10 +25,5 @@ class Product(models.Model):
     available = models.BooleanField(null=True)
     image = models.URLField(blank=True)
 
-
-
     class Meta:
         ordering = ("slug",)
-
-
-

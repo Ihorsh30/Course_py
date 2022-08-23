@@ -1,7 +1,17 @@
 <div class="container py-3">
     <ul  class="nav">
         <li class="nav-item"><a href="{% url 'homepage' %}" class="nav-link">Homepage</a></li>
-        <li class="nav-item"><a href="{% url 'user_name' %}" class="nav-link">Profile</a></li>
         <li class="nav-item"><a href="{% url 'cart' %}" class="nav-link">Cart</a></li>
+        <ul class="nav col-md-10 justify-content-end">
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a href="{% url 'user' %}" class="nav-link">Profile</a></li>
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                <li class="nav-item"><a href="{% url 'user_deactivate' %}" class="nav-link">Deactivate</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'signin' %}" class="nav-link">Sign in</a></li>
+                <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link">Sign up</a></li>
+            {% endif %}
+        </ul>
     </ul>
 </div>
+
