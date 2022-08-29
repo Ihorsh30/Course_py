@@ -2,12 +2,9 @@
 {% block title %}Profile{% endblock %}
 {% block container %}
 
-
-
 <div class="text-center">
     <h1>User page</h1>
 </div>
-
 <div  class="container">
     <p><img src="https://cdn-icons-png.flaticon.com/512/47/47774.png" alt="" width="150" height="150"></p>
     <p><b>ID: {{user.id}}</b></p>
@@ -15,6 +12,15 @@
     <p><b>First_name: {{ user.first_name }}</b></p>
     <p><b>Last_name: {{ user.last_name }}</b></p>
     <p><b>Email: {{ user.email }}</b></p>
+    <p><b>Birth_date: {{ user.birth_date }}</b></p>
 </div>
-
+<div class="container py-3">
+    <button><a href="{% url 'profile_edit' %}" class="nav-link">Edit profile</a></button>
+    <button><a href="{% url 'login_edit' %}" class="nav-link">Login edit</a></button>
+</div>
 {% endblock %}
+
+
+
+
+

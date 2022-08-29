@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'firstdb',
-        'USER': 'shell',
+        'USER': 'shel',
         'PASSWORD': 'mypass',
         'HOST': 'localhost',
         'PORT': '5432',
@@ -106,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "user.UserModel"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
