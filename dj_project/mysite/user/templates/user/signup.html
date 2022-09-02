@@ -4,12 +4,7 @@
     <div>Message: {{ message }}</div>
     <form method="post">
         {% csrf_token %}
-        <label for="username">Enter username:</label><br> <input id="username" name="username" type="text"><br>
-        <label for="first_name">Enter first_name:</label><br> <input id="first_name" name="first_name" type="text"><br>
-        <label for="last_name">Enter last_name:</label><br> <input id="last_name" name="last_name" type="text"><br>
-        <label for="email">Enter email:</label><br> <input id="email" name="email" type="text"><br>
-        <label for="password1">Enter password:</label><br> <input id="password1" name="password1" type="password"><br>
-        <label for="password2">Confirm password:</label><br> <input id="password2" name="password2" type="password"><br><br>
+        {{ form.as_p }}
         <input type="submit" value="Submit">
     </form>
 {% endblock %}
