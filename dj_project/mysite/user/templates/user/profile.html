@@ -15,8 +15,10 @@
     <p><b>Birth_date: {{ user.birth_date }}</b></p>
 </div>
 <div class="container py-3">
-    <button><a href="{% url 'profile_edit' %}" class="nav-link">Edit profile</a></button>
-    <button><a href="{% url 'login_edit' %}" class="nav-link">Login edit</a></button>
+    <button type="submit" class="btn brn-lg btn-success mt-3"><a href="{% url 'profile_edit' %}" class="nav-link">Profile edit</a></button>
+    <button type="submit" class="btn brn-lg btn-success mt-3"><a href="{% url 'login_edit' %}" class="nav-link">Login edit</a></button>
+    <button type="submit" class="btn btn-danger mt-3"><a href="{% url 'delete_user' user.id %}" class="nav-link"><i class="fa-solid fa-trash-can"></i> Delete Account</a></button>
+    <button type="submit" class="btn brn-lg btn-success mt-3"><a href="{% url 'password_change' %}" class="nav-link">Password edit</a></button>
 </div>
 {% endblock %}
 

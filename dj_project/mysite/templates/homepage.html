@@ -16,61 +16,85 @@
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 nav">
     {% for url in products %}
         {% if url.quantity_stock != 0 %}
-            {% if url.amount == 0 %}
-                      <div class="p-3 pb-md-4  text-center">
-                        <img src="{{ url.image }}" alt="" width="380" height="350">
-                        <div style="font-size:160%" class="nav-item"><a href="{{ url.slug }}" class="nav-link" style="background-color:hsla(9, 100%, 64%, 0.5);">{{ url.name }}</a></div>
-                        <div  align="left">
-                            <p class="fs-5" style="color:DodgerBlue;">ID: {{ url.id }}</p>
-                            <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }} - NO GOODS</p>
-                            <p class="fs-5" style="color:DodgerBlue;">Company: {{ url.company }}</p>
-                            <p class="fs-5" style="color:DodgerBlue;">Country: {{ url.country }}</p>
-                        </div>
-                            <p class="fs-3">Price: {{ url.price }} $</p>
-                            <a class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
-                       </div>
-            {% endif %}
-        <div class="p-3 pb-md-4  text-center">
-          <img src="{{ url.image }}" alt="" width="380" height="350">
-          <div style="font-size:160%" class="nav-item"><a href="{{ url.slug }}" class="nav-link" style="background-color:hsla(9, 100%, 64%, 0.5);">{{ url.name }}</a></div>
-            <div  align="left">
-                <p class="fs-5" style="color:DodgerBlue;">ID: {{ url.id }}</p>
-                <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }}</p>
-                <p class="fs-5" style="color:DodgerBlue;">Company: {{ url.company }}</p>
-                <p class="fs-5" style="color:DodgerBlue;">Country: {{ url.country }}</p>
+            <div class="p-3 pb-md-4  text-center">
+              <img src="{{ url.image }}" alt="" width="380" height="350">
+              <div style="font-size:160%" class="nav-item"><a href="{{ url.slug }}" class="nav-link" style="background-color:hsla(9, 100%, 64%, 0.5);">{{ url.name }}</a></div>
+                <div  align="left">
+                    <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }}</p>
+                    <p class="fs-5" style="color:DodgerBlue;">Stock: {{ url.quantity_stock }}</p>
+                    <p class="fs-5" style="color:DodgerBlue;">Company: {{ url.company }}</p>
+                    <p class="fs-5" style="color:DodgerBlue;">Country: {{ url.country }}</p>
+                </div>
+                    <p class="fs-3">Price: {{ url.price }} ₴</p>
+                    <a href="/cart" class="btn btn-primary active mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-regular fa-money-bill-1"></i> Buy</a>
+                    <a href="{% url 'prod_update' url.slug %}" class="btn btn-primary mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-solid fa-pen"></i> Product update</a>
+                    <a href="{% url 'prod_delete' url.slug %}" class="btn btn-danger mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-solid fa-trash-can"></i> Product delete</a>
             </div>
-                <p class="fs-3">Price: {{ url.price }} $</p>
-                <a href="/cart" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
-        </div>
             {% else %}
-
             <div class="p-3 pb-md-4  text-center">
               <div style="position: absolute; color:red; font-size:70px; padding-top: 100px">Out of stock</div>
               <img src=" {{ url.image }} " alt="" width="380" height="350">
               <div style="font-size:160%" class="nav-item"><a href="{{ url.slug }} " class="nav-link" style="background-color:hsla(9, 100%, 64%, 0.5);">{{ url.name }}</a></div>
                 <div  align="left">
                     {% if url.amount == 0 %}
-                            <p class="fs-5" style="color:DodgerBlue;">ID: {{ url.id }}</p>
-                            <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }} - NO GOODS</p>
-                        {% else %}
-                            <p class="fs-5" style="color:DodgerBlue;">ID: {{ url.id }}</p>
                             <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }} </p>
+                            <p class="fs-5" style="color:DodgerBlue;">Stock: {{ url.quantity_stock }}</p>
+                        {% else %}
+                            <p class="fs-5" style="color:DodgerBlue;">Amount: {{ url.amount }} </p>
+                            <p class="fs-5" style="color:DodgerBlue;">Stock: {{ url.quantity_stock }}</p>
                     {% endif %}
-                    <p class="fs-5" style="color:DodgerBlue;">Company: {{ url.company }}</p>
-                    <p class="fs-5" style="color:DodgerBlue;">Country: {{ url.country }}</p>
+                        <p class="fs-5" style="color:DodgerBlue;">Company: {{ url.company }}</p>
+                        <p class="fs-5" style="color:DodgerBlue;">Country: {{ url.country }}</p>
                 </div>
                     {% if url.amount != 0 %}
-                            <p class="fs-3">Price: {{ url.price }} $</p>
-                            <a href="/cart" class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
+                            <p class="fs-3">Price: {{ url.price }} ₴</p>
+                            <a href="/cart" class="btn btn-primary active mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-regular fa-money-bill-1"></i> Buy</a>
+                            <a href="{% url 'prod_update' url.slug %}" class="btn btn-primary mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-solid fa-pen"></i> Product update</a>
+                            <a href="{% url 'prod_delete' url.slug %}" class="btn btn-danger mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-solid fa-trash-can"></i> Product delete</a>
                         {% else %}
-                            <p class="fs-3">Price: {{ url.price }} $</p>
-                            <a class="btn btn-primary active" data-bs-toggle="button" aria-pressed="true">Buy</a>
+                            <p class="fs-3">Price: {{ url.price }} ₴</p>
+                            <a class="btn btn-primary active mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-regular fa-money-bill-1"></i> Buy</a>
+                            <a href="{% url 'prod_update' url.slug %}" class="btn btn-primary mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-solid fa-pen"></i> Product update</a>
+                            <a href="{% url 'prod_delete' url.slug %}" class="btn btn-danger mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-solid fa-trash-can"></i> Product delete</a>
                     {% endif %}
             </div>
          {% endif %}
     {% endfor %}
-
-
   </div>
 
+ <!--Pagination-->
+    <div class="container p-4">
+      <div class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+              <li class="page-item"> <a class="page-link" href="?page=1">&laquo;First</a></li>
+              <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Previous</a>
+              </li>
+            {% endif %}
+            {% for i in page_obj.paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">
+                    {{ i }}
+                  </span>
+                </li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last&raquo;</a></li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Next</a>
+              </li>
+            {% endif %}
+      </div>
+    </div>
+    <!--end of Pagination-->
 {% endblock %}
+
+

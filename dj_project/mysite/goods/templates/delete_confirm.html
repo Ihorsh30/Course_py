@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Change Password{% endblock %}
+{% block container %}
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h2 class="display-7 fw-normal">Delete confirm page</h2>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <h4>Are you sure you want to delete: "{{ object.name }}"?</h4>
+        <button type="submit" class="btn btn-danger mt-3"><i class="fa-solid fa-trash-can"></i> Delete</button>
+    </form>
+{% endblock %}

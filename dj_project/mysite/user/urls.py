@@ -1,12 +1,14 @@
 from django.urls import path
-from .views import user, signup_view, signin_view, user_deactivate, logout_view, profile_edit, login_edit
+from .views import user, Signup, Login, user_deactivate, ProfileEdit, LoginEdit, Logout, DeleteUser, PasswordChange
 
 urlpatterns = [
     path('user/', user, name='user'),
-    path('user/edit', profile_edit, name='profile_edit'),
-    path('user/log_edit', login_edit, name='login_edit'),
-    path('signup/', signup_view, name='signup'),
-    path('signin/', signin_view, name='signin'),
+    path('user/edit/', ProfileEdit.as_view(), name='profile_edit'),
+    path('user/log_edit/', LoginEdit.as_view(), name='login_edit'),
+    path('password/', PasswordChange.as_view(), name='password_change'),
+    path('signup/', Signup.as_view(), name='signup'),
+    path('login/', Login.as_view(), name='login'),
     path('deactivate/', user_deactivate, name='user_deactivate'),
-    path('logout/', logout_view, name='logout'),
+    path('logout/', Logout.as_view(), name='logout'),
+    path('user/delete/<int:pk>/', DeleteUser.as_view(), name='delete_user'),
 ]

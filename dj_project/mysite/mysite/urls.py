@@ -19,7 +19,7 @@ from goods import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.list_view, name='homepage'),
+    path('', views.ProductList.as_view(), name='homepage'),
     path('', include('user.urls')),
     path('', include('goods.urls')),
 ]

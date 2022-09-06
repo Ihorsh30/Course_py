@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Login Page{% endblock %}
 {% block container %}
-
-
-    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-        <h1 class="display-5 fw-normal">Registration form</h1>
-    </div>
     <div>Message: {{ message }}</div>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success mt-3"><i class="fa-solid fa-check"></i> Submit</button>
     </form>
+    <br>
+    <p>Don't have an account? <a href="{% url 'signup' %}"><i class="fa-solid fa-diamond-turn-right"></i> Sign up</a></p>
 {% endblock %}

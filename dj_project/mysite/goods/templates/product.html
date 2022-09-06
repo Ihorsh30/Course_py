@@ -3,18 +3,17 @@
 {% block container %}
 
 
-
 <div class="text-center">
     <h1>Product page</h1>
 </div>
 
 <div  class="container">
-
-        <p class="fs-5"><b>ID:</b> {{ object.id }}</p>
         <img src="{{ object.image }}" alt="" width="380" height="350">
         <p><b>Product name:</b> {{ object.name }}</p>
         <p><b>Description:</b> {{ object.description }}</p>
-
+        <a href="{% url 'cat_update' object.slug %}" class="btn btn-primary mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-solid fa-pen"></i> Category update</a>
+        <a href="{% url 'cat_delete' object.slug %}" class="btn btn-danger mt-3" data-bs-toggle="button" aria-pressed="true"><i class="fa-solid fa-trash-can"></i> Category delete</a>
 </div>
-
 {% endblock %}
+
+
