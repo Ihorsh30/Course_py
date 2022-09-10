@@ -4,4 +4,5 @@ This is my first django project
 * Deleted context with products and added products from DataBase
 * Implemented authentication system (part 1) 
 * Implemented authentication system (part 2)
+* Use Class Base Views (CBV)
 
