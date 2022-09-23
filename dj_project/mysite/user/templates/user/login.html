@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Login Page{% endblock %}
 {% block container %}
-    <div>Message: {{ message }}</div>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-success mt-3"><i class="fa-solid fa-check"></i> Submit</button>
-    </form>
-    <br>
-    <p>Don't have an account? <a href="{% url 'signup' %}"><i class="fa-solid fa-diamond-turn-right"></i> Sign up</a></p>
+    <div class="text-center">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div>Message: {{ message }}</div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success mt-3 rounded"><i class="fa-solid fa-check"></i> Submit</button>
+        </form>
+        <br>
+        <p>Don't have an account? <a href="{% url 'signup' %}"><i class="fa-solid fa-diamond-turn-right"></i> Sign up</a></p>
+    </div>
 {% endblock %}
+

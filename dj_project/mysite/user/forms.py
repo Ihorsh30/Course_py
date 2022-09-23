@@ -38,6 +38,7 @@ class SignUpForm(forms.ModelForm):
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
+        user.wallet = 1000
         if commit:
             user.save()
         return user
@@ -85,5 +86,3 @@ class PasswordEditForm(PasswordChangeForm):
     class Meta:
         model = UserModel
         fields = ['old_password', 'new_password1', 'new_password2']
-
-
