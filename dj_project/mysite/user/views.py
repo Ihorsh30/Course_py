@@ -1,5 +1,4 @@
 from django.contrib.messages.views import SuccessMessageMixin
-from django.core.exceptions import ImproperlyConfigured
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponseRedirect
 from django.urls import reverse_lazy, reverse
@@ -90,3 +89,5 @@ def user_deactivate(request):
         user.is_active = False
         user.save()
         return HttpResponseRedirect(reverse("logout"))
+
+

@@ -1,9 +1,12 @@
 from django.urls import path
-from .views import cart, ProductDetail, CategoryCreate, ProductCreate, CategoryUpdate, ProductUpdate, CategoryDelete, \
-    ProductDelete
+from .views import cart, checkout, update_item, ProductDetail, CategoryCreate, ProductCreate, CategoryUpdate, \
+    ProductUpdate, CategoryDelete, ProductDelete, refund
 
 urlpatterns = [
     path('cart/', cart, name='cart'),
+    path('checkout/', checkout, name='checkout'),
+    path('update_item/', update_item, name='update_item'),
+    path('refund/', refund, name='refund'),
     path('category_create/', CategoryCreate.as_view(), name='cat_create'),
     path('product_create/', ProductCreate.as_view(), name='prod_create'),
     path('<slug:slug>/', ProductDetail.as_view(), name='prod_detail'),
